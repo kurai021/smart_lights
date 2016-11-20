@@ -69,10 +69,11 @@ board.on("ready", function(){
 
   io.on('connection', function(client){
 
+    client.on('join', function(data){
+      console.log('cliente conectado');
+    });
+
     strip.on("ready", function(){
-      client.on('join', function(data){
-        console.log('data');
-      });
 
       client.on('light_on', function(){
         strip.color("#ff0000");
