@@ -67,28 +67,25 @@ board.on("ready", function(){
     strips:[8]
   })
 
-  io.on('connection', function(client){
+  strip.on("ready", function(){
+    console.log("luces listas!");
+  });
 
-    client.on('join', function(data){
-      console.log('cliente conectado');
-    });
+  io.sockets.on('connection', function(socket){
+    console.log("cliente conectado");
+  });
 
-    strip.on("ready", function(){
+  io.sockets.on('light_on', function(){
+    console.log(data);
+    strip.color("#ff0000");
+    strip.show;
+  });
 
-      client.on('light_on', function(){
-        console.log(data);
-        strip.color("#ff0000");
-        strip.show;
-      });
-
-      client.on('light_off', function(){
-        console.log(data);
-        strip.color("#000000");
-        strip.show;
-      });
-    });
-
-  })
+  io.sockets.on('light_off', function(){
+    console.log(data);
+    strip.color("#000000");
+    strip.show;
+  });
 
 });
 
