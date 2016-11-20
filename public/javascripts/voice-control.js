@@ -3,5 +3,7 @@ $(document).ready(function() {
         socket.emit('join', 'Hello World from client');
     });
 
-    hearing();
+    $("#microphone").keypress(function() {
+        hearing();
+    });
 });

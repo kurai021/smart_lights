@@ -5,7 +5,7 @@ function hearing() {
   var commandsGroup = [{
       description: "saludar es importante!",
       smart: false,
-      indexes: ["Hola", "Buenos días", "Buenas tardes", "Buenas noches", "Como estas", ],
+      indexes: ["Hola", "Buenos días", "Buenas tardes", "Buenas noches", "Cómo estás", ],
       action: function(i) {
           var forHola = [
               "Hola, ¿que tal?",
@@ -71,7 +71,7 @@ function hearing() {
   {
     description: "Ordenes",
     smart: false,
-    indexes: ["que hora es","encender luces","apagar luces"],
+    indexes: ["qué hora es","encender luces","apagar luces"],
     action: function(i){
       var forHora = [
         "son las",
