@@ -15,6 +15,8 @@ var users = require('./routes/users');
 
 var app = express();
 
+var io = require("socket.io")(app);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.use('/client', express.static(__dirname + '/node_modules'));
