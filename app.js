@@ -63,7 +63,6 @@ board.on("ready", function(){
     board: this,
     controller: "I2CBACKPACK",
     bus: 2,
-    pin: 6,
     strips:[8]
   })
 

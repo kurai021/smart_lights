@@ -86,11 +86,11 @@
           break;
         case 1:
           artyom.say('encendiendo luces');
-          socket.emit('light_on', {data: 'encendiendo luces...'});
+          socket.emit('light_on', 'encendiendo luces...');
           break;
         case 2:
           artyom.say('apagando luces');
-          socket.emit('light_off', {data: 'apagando luces...'});
+          socket.emit('light_off', 'apagando luces...');
           break;
       }
     }
