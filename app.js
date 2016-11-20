@@ -71,20 +71,20 @@ board.on("ready", function(){
     console.log("luces listas!");
   });
 
-  io.sockets.on('connection', function(socket){
+  io.on('connection', function(socket){
     console.log("cliente conectado");
-  });
 
-  io.sockets.on('light_on', function(){
-    console.log(data);
-    strip.color("#ff0000");
-    strip.show;
-  });
+    socket.on('light_on', function(data){
+      console.log(data);
+      strip.color("#ff0000");
+      strip.show;
+    });
 
-  io.sockets.on('light_off', function(){
-    console.log(data);
-    strip.color("#000000");
-    strip.show;
+    socket.on('light_off', function(data){
+      console.log(data);
+      strip.color("#000000");
+      strip.show;
+    });
   });
 
 });

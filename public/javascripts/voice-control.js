@@ -1,7 +1,4 @@
 $(document).ready(function() {
-    socket.on('connect', function(data) {
-        socket.emit('join');
-    });
 
     $("#microphone").mousedown(function() {
       artyom.initialize({
