@@ -82,14 +82,14 @@ function hearing() {
         case 0:
           var d = new Date();
           var frase = forComoEstas[Math.floor(Math.random() * forComoEstas.length)];
-          artom.say(frase + " " + d.getHours + ":" + d.getMinutes);
+          artyom.say(frase + " " + d.getHours + ":" + d.getMinutes);
           break;
         case 1:
-          artom.say('encendiendo luces');
+          artyom.say('encendiendo luces');
           console.log(data);
           client.emit('light_on');
         case 2:
-          artom.say('apagando luces');
+          artyom.say('apagando luces');
           console.log(data);
           client.emit('light_off');
       }
