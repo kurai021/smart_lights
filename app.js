@@ -76,11 +76,13 @@ board.on("ready", function(){
     strip.on("ready", function(){
 
       client.on('light_on', function(){
+        console.log(data);
         strip.color("#ff0000");
         strip.show;
       });
 
       client.on('light_off', function(){
+        console.log(data);
         strip.color("#000000");
         strip.show;
       });

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     socket.on('connect', function(data) {
-        socket.emit('join', 'Hello World from client');
+        socket.emit('join');
     });
 
     $("#microphone").mousedown(function() {
