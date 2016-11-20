@@ -70,7 +70,7 @@ function hearing() {
 
   {
     description: "Ordenes",
-    smart: true,
+    smart: false,
     indexes: ["que hora es","encender luces","apagar luces"],
     action: function(i){
       var forHora = [
