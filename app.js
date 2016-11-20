@@ -62,7 +62,7 @@ board.on("ready", function(){
   var strip = new pixel.Strip({
     board: this,
     controller: "I2CBACKPACK",
-    bus: 2,
+    bus: 3,
     strips:[8]
   })
 

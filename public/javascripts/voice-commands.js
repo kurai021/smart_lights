@@ -1,6 +1,6 @@
-'use strict';
+(function(window){
 
-function hearing() {
+  'use strict';
 
   var commandsGroup = [{
       description: "saludar es importante!",
@@ -96,4 +96,4 @@ function hearing() {
     }
   }];
   artyom.addCommands(commandsGroup);
-}
+})(window);
