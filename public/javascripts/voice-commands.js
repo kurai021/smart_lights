@@ -87,9 +87,11 @@ function hearing() {
         case 1:
           artyom.say('encendiendo luces');
           socket.emit('light_on');
+          break;
         case 2:
           artyom.say('apagando luces');
           socket.emit('light_off');
+          break;
       }
     }
   }];
