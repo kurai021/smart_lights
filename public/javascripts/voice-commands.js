@@ -82,15 +82,13 @@ function hearing() {
         case 0:
           var d = new Date();
           var frase = forHora[Math.floor(Math.random() * forHora.length)];
-          artyom.say(frase + " " + d.getHours + ":" + d.getMinutes);
+          artyom.say(frase + " " + d.getHours() + ":" + d.getMinutes());
           break;
         case 1:
           artyom.say('encendiendo luces');
-          console.log(data);
           socket.emit('light_on');
         case 2:
           artyom.say('apagando luces');
-          console.log(data);
           socket.emit('light_off');
       }
     }
