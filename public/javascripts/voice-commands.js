@@ -95,4 +95,5 @@ function hearing() {
       }
     }
   }];
+  artyom.addCommands(commandsGroup);
 }
