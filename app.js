@@ -14,8 +14,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
-var io = require("socket.io")(app);
+var server = require('http').Server(app);
+var io = require("socket.io")(server);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -89,4 +89,4 @@ board.on("ready", function(){
 });
 
 
-module.exports = app;
+module.exports = {app: app, server: server};
