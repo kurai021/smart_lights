@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+/*necesario para manejar las luces*/
+var five = require("johnny-five");
+var chipio = require("chip-io");
+var pixel = require("node-pixel");
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -43,5 +48,43 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+var board = new five.Board({
+  io: new chipio()
+});
+
+board.on("ready", function(){
+
+  console.log("Board ready, lets add lights!");
+
+  var strip = new pixel.Strip({
+    board: this,
+    controller: "I2CBACKPACK",
+    bus: 2,
+    strips:[8]
+  })
+
+  io.on('connection', function(client){
+
+    strip.on("ready", function(){
+      client.on('join', function(data){
+        console.log('data');
+      });
+
+      client.on('light_on', function(){
+        strip.color("#ff0000");
+        strip.show;
+      });
+
+      client.on('light_off', function(){
+        strip.color("#000000");
+        strip.show;
+      });
+    });
+
+  })
+
+});
+
 
 module.exports = app;
