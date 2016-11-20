@@ -37,7 +37,7 @@ function hearing() {
           var forComoEstas = [
               "Estoy bien, gracias",
               "Muy bien, gracias",
-              "¡fresco como una lechuga!"
+              "¡fresco como una lechuga!",
               "Me siento excelente este día",
               "Agradecidamente vivo y me siento de alguna forma joven y saludable"
           ];
