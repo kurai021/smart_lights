@@ -1,9 +1,9 @@
-$(document).ready(function(){
-  socket.on('connect', function(data){
-    socket.emit('join', 'Hello World from client');
-  });
+$(document).ready(function() {
+    socket.on('connect', function(data) {
+        socket.emit('join', 'Hello World from client');
+    });
 
-  $("#microphone").keydown() = function(){
-    hearing();
-  }
+    $("#microphone").keypress(function() {
+        hearing();
+    });
 });
