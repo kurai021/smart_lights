@@ -23,6 +23,7 @@
     "node-pixel": "^0.8.1",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "~2.3.0",
-    "socket.io": "^1.5.1"
+    "socket.io": "^1.5.1",
+    "wikipedia-js": "git+https://github.com/kenshiro-o/wikipedia-js.git"
   }
 }

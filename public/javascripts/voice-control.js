@@ -7,10 +7,13 @@ $(document).ready(function() {
           listen:true,
           debug:true
       });
+      $("#microphone").removeClass("btn-primary");
+      $("#microphone").addClass("btn-danger");
     });
 
     $("#microphone").mouseup(function() {
         artyom.fatality();
-        console.log("apagado...")
+        $("#microphone").removeClass("btn-danger");
+        $("#microphone").addClass("btn-primary");
     });
 });
