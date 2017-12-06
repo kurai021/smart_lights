@@ -1,9 +1,13 @@
+var artyom = new Artyom();
+
 $(document).ready(function() {
 
-    $("#microphone").mousedown(function() {
+    $("#microphone").on('touchstart mousedown', function(e){
+      e.preventDefault();
+
       artyom.initialize({
           continuous:true,
-          lang:"es-CO",
+          lang:"es-ES",
           listen:true,
           debug:true
       });
@@ -11,9 +15,11 @@ $(document).ready(function() {
       $("#microphone").addClass("btn-danger");
     });
 
-    $("#microphone").mouseup(function() {
-        artyom.fatality();
-        $("#microphone").removeClass("btn-danger");
-        $("#microphone").addClass("btn-primary");
+    $("#microphone").on("touchend mouseup", function(e){
+      e.preventDefault();
+
+      artyom.fatality();
+      $("#microphone").removeClass("btn-danger");
+      $("#microphone").addClass("btn-primary");
     });
 });
