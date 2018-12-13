@@ -26,8 +26,6 @@ var app = express();
 var server = require('https').Server(options, app);
 var io = require("socket.io")(server);
 
-var wikipedia = require('wikijs').default;
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -76,11 +74,11 @@ board.on("ready", function() {
     console.log("Board ready, lets add lights!");
 
     strip = new pixel.Strip({
-        data: 8,
-        length: 30,
+        data: 7,
+        length: 62,
         color_order: pixel.COLOR_ORDER.GRB,
         board: this,
-        controller: "I2CBACKPACK"
+        controller: "FIRMATA"
     })
 
     strip.on("ready", function() {
@@ -232,10 +230,8 @@ board.on("ready", function() {
             });
 
             socket.on('light_off', function(data) {
-              strip.off();
               clearInterval(twinkle_on);
               clearInterval(twinkle_clean);
-
               clearInterval(light_red);
               clearInterval(light_blue);
               clearInterval(light_pink);
@@ -244,28 +240,8 @@ board.on("ready", function() {
               clearInterval(light_white);
               clearInterval(light_purple);
               clearInterval(light_rainbow);
+              strip.off();
             });
-
-            socket.on('search_wikipedia', function(data){
-
-              var wiki_res
-
-              wiki_res = wikipedia({
-                apiUrl: 'https://es.wikipedia.org/w/api.php',
-                origin: null
-              }).page(data);
-
-              wiki_res.then(function (page) {
-                return page.summary();
-              }).then(function(res){
-                socket.emit('wikipedia_response', res);
-              });
-
-              wiki_res.catch(function(){
-                socket.emit('wikipedia_response', "término no encontrado");
-              });
-
-          });
 
         });
     });
@@ -296,7 +272,6 @@ board.on("ready", function() {
     }
 
 });
-
 
 module.exports = {
     app: app,

@@ -153,26 +153,6 @@
         break;
       }
     }
-  },
-  {
-    description: "Orden wikipedia",
-    indexes: ["Buscar * en Wikipedia"],
-    smart: true,
-    action: function(i, wildcard){
-      artyom.say('buscando ' + wildcard);
-      socket.emit('search_wikipedia', wildcard);
-      socket.on('wikipedia_response', function(data){
-        artyom.say(data);
-      });
-    }
-  },
-  {
-    description: "silencio",
-    indexes: ["Silencio"],
-    smart: false,
-    action: function(){
-      artyom.shutUp();
-    }
   }
 ];
   artyom.addCommands(commandsGroup);
